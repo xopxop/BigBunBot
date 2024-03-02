@@ -16,7 +16,7 @@ function App() {
   const [messages, setMessages] = useState([
     {
       message: "Hello Eena, I am BigBugBot, I am here to replace Dudu, he is sleeping right now!",
-      sender: "DuDu"
+      sender: "BigBunBot"
     }
   ]);
 
@@ -35,7 +35,7 @@ function App() {
   async function processMessageToChatGPT(chatMessages) {
     const apiMessages = chatMessages.map(messageObj => {
       return {
-        role: messageObj.sender === "DuDu" ? "assistant" : "user",
+        role: messageObj.sender === "BigBunBot" ? "assistant" : "user",
         content: messageObj.message
       }
     });
@@ -62,7 +62,7 @@ function App() {
     }).then(data => {
       setMessages([...chatMessages, {
         message: data.choices[0].message.content,
-        sender: "DuDu"
+        sender: "BigBunBot"
       }]);
       setTyping(false);
     });
@@ -73,7 +73,7 @@ function App() {
       <ChatContainer>
         <MessageList
           scrollBehavior='smooth'
-          typingIndicator={typing ? <TypingIndicator content="DuDu is typing"/> : null}
+          typingIndicator={typing ? <TypingIndicator content="BigBunBot is typing"/> : null}
         >
           {
             messages.map((message, index) => {
