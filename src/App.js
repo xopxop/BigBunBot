@@ -9,13 +9,13 @@ import {
   TypingIndicator
 } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "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";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: "Hello Eena, I am BigBugBot, I am here to replace Dudu, he is sleeping right now!",
+      message: "Hello Eena, I am BigBunBot, I am here to replace Dudu, he is sleeping right now!",
       sender: "BigBunBot"
     }
   ]);
